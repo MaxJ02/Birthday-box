@@ -1,3 +1,12 @@
+/****************************************************************************
+*
+* Display.c: Example sketch taken from the arduino ide 
+*            "AdafruitSSD1306" library. Displays static text on the
+*            128x64 oled display. The display address has been modified
+*            from 0x3D to 0x3C.
+*
+****************************************************************************/
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -11,7 +20,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 void setup() {
   Serial.begin(115200);
 
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3D for 128x64
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))  // Address 0x3C for 128x64 (Originally 0x3D)
+  {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;);
   }
